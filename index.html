@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Arquitectura de Despliegue - TiendaVirtual Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            line-height: 1;
+            color: #94d2bd;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" style="background-color: #001219;">
+
+    <div class="container mx-auto p-4 md:p-8 text-gray-800">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2" style="color: #e9d8a6;">Arquitectura de Despliegue</h1>
+            <h2 class="text-2xl md:text-3xl font-bold" style="color: #94d2bd;">TiendaVirtual Pro</h2>
+            <p class="mt-4 max-w-3xl mx-auto text-lg" style="color: #e0f2f1;">Una visión profunda de la infraestructura robusta, escalable y segura que impulsa nuestro sistema de comercio electrónico.</p>
+        </header>
+
+        <section id="kpis" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center transition-transform transform hover:scale-105" style="background-color: #005f73; color: #ffffff;">
+                    <div class="text-5xl font-black" style="color: #94d2bd;">99.9%</div>
+                    <p class="mt-2 font-semibold text-lg">Alta Disponibilidad</p>
+                    <p class="text-sm opacity-80">Garantizando operatividad continua.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center transition-transform transform hover:scale-105" style="background-color: #005f73; color: #ffffff;">
+                    <div class="text-5xl font-black" style="color: #94d2bd;">1M+</div>
+                    <p class="mt-2 font-semibold text-lg">Escalabilidad de Usuarios</p>
+                    <p class="text-sm opacity-80">Preparados para picos de demanda.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center transition-transform transform hover:scale-105" style="background-color: #005f73; color: #ffffff;">
+                    <div class="text-5xl font-black" style="color: #94d2bd;">&lt;100ms</div>
+                    <p class="mt-2 font-semibold text-lg">Rendimiento Óptimo</p>
+                    <p class="text-sm opacity-80">Tiempos de respuesta para el usuario.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center transition-transform transform hover:scale-105" style="background-color: #005f73; color: #ffffff;">
+                    <div class="text-5xl font-black" style="color: #94d2bd;">100%</div>
+                    <p class="mt-2 font-semibold text-lg">Seguridad de Datos</p>
+                    <p class="text-sm opacity-80">Protección de transacciones y usuarios.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="arquitectura" class="mb-16">
+             <div class="bg-white rounded-lg shadow-xl p-6 md:p-8" style="background-color: #003049;">
+                <h3 class="text-3xl font-bold text-center mb-8" style="color: #e9d8a6;">Arquitectura en Capas</h3>
+                <p class="text-center max-w-2xl mx-auto mb-10 text-lg" style="color: #e0f2f1;">Nuestro sistema se estructura en capas lógicas y físicas para maximizar la seguridad y la eficiencia. Cada capa tiene una responsabilidad única, creando un flujo de datos organizado y seguro desde el usuario hasta la base de datos.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 space-y-4 md:space-y-0 text-center">
+                    <div class="p-4 rounded-lg w-full md:w-1/5" style="background-color: #0a9396;"><span class="font-bold text-white">🌐 Capa de Cliente</span></div>
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                     <div class="flow-arrow md:hidden">&darr;</div>
+                    <div class="p-4 rounded-lg w-full md:w-1/5" style="background-color: #94d2bd; color: #001219;"><span class="font-bold">🚪 Capa Web (DMZ)</span></div>
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                     <div class="flow-arrow md:hidden">&darr;</div>
+                    <div class="p-4 rounded-lg w-full md:w-1/5" style="background-color: #ee9b00;"><span class="font-bold text-black">⚙️ Capa de Aplicación</span></div>
+                    <div class="flow-arrow hidden md:block">&rarr;</div>
+                     <div class="flow-arrow md:hidden">&darr;</div>
+                    <div class="p-4 rounded-lg w-full md:w-1/5" style="background-color: #ca6702;"><span class="font-bold text-white">🗄️ Capa de Datos</span></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="flujo" class="mb-16">
+            <h3 class="text-3xl font-bold text-center mb-8" style="color: #e9d8a6;">El Viaje de una Petición de Usuario</h3>
+            <p class="text-center max-w-3xl mx-auto mb-12 text-lg" style="color: #e0f2f1;">Desde que un usuario hace clic hasta que ve la página, su petición viaja a través de una serie de nodos especializados. Este flujo garantiza que cada solicitud se gestione de forma segura y eficiente.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="bg-white rounded-lg shadow-xl p-6" style="background-color: #003049; color: #e0f2f1;">
+                    <h4 class="font-bold text-xl mb-2" style="color: #94d2bd;">1. Entrada y Balanceo</h4>
+                    <p class="mb-4 text-sm">El usuario accede desde su <b style="color: #ee9b00;">Navegador Web</b>. El <b style="color: #ee9b00;">Firewall</b> filtra el tráfico, y un <b style="color: #ee9b00;">Balanceador de Carga</b> lo distribuye inteligentemente para evitar sobrecargas.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6" style="background-color: #003049; color: #e0f2f1;">
+                    <h4 class="font-bold text-xl mb-2" style="color: #94d2bd;">2. Lógica de Negocio</h4>
+                    <p class="mb-4 text-sm">Los <b style="color: #ee9b00;">Servidores Web</b> (Nginx) reciben la petición y se comunican con los <b style="color: #ee9b00;">Servidores de Aplicación</b> (Tomcat), donde reside la lógica principal del negocio.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6" style="background-color: #003049; color: #e0f2f1;">
+                    <h4 class="font-bold text-xl mb-2" style="color: #94d2bd;">3. Persistencia y Respuesta</h4>
+                    <p class="mb-4 text-sm">La aplicación consulta la <b style="color: #ee9b00;">Base de Datos</b> (PostgreSQL). Si se requiere un pago, se conecta con un <b style="color: #ee9b00;">Servicio Externo</b>. La respuesta viaja de vuelta al usuario.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="componentes" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-xl p-6 md:p-8" style="background-color: #003049;">
+                    <h3 class="text-2xl font-bold text-center mb-4" style="color: #e9d8a6;">Stack en la Capa de Aplicación</h3>
+                    <p class="text-center text-sm mb-6" style="color: #e0f2f1;">La capa de aplicación es el cerebro del sistema, donde los artefactos de software clave se ejecutan para procesar las solicitudes de los usuarios.</p>
+                    <div class="chart-container">
+                        <canvas id="appLayerChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 md:p-8" style="background-color: #003049;">
+                    <h3 class="text-2xl font-bold text-center mb-4" style="color: #e9d8a6;">Distribución de Responsabilidades</h3>
+                     <p class="text-center text-sm mb-6" style="color: #e0f2f1;">Comparamos la carga de trabajo entre las capas Web y de Aplicación, mostrando cómo se distribuye el procesamiento.</p>
+                    <div class="chart-container">
+                        <canvas id="responsibilitiesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t" style="border-color: #005f73;">
+            <p class="text-sm" style="color: #94d2bd;">Infografía generada dinámicamente para ilustrar la arquitectura de TiendaVirtual Pro.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const tooltipTitleCallback = function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const appLayerCtx = document.getElementById('appLayerChart').getContext('2d');
+            new Chart(appLayerCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Lógica de Negocio (.jar)', 'Servidor de Aplicación (Tomcat)', 'Conectores de Datos'],
+                    datasets: [{
+                        label: 'Stack de Software',
+                        data: [60, 30, 10],
+                        backgroundColor: ['#ee9b00', '#ca6702', '#bb3e03'],
+                        borderColor: '#003049',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#e0f2f1'
+                            }
+                        },
+                        tooltip: {
+                           callbacks: {
+                                title: tooltipTitleCallback
+                           }
+                        }
+                    }
+                }
+            });
+
+            const responsibilitiesCtx = document.getElementById('responsibilitiesChart').getContext('2d');
+            const originalLabels = ['Gestión de Tráfico HTTP', 'Servicio de Contenido Estático', 'Procesamiento de Lógica de Negocio', 'Acceso a Base de Datos'];
+            const wrappedLabels = originalLabels.map(wrapLabel);
+            
+            new Chart(responsibilitiesCtx, {
+                type: 'bar',
+                data: {
+                    labels: wrappedLabels,
+                    datasets: [{
+                        label: 'Capa Web (Nginx)',
+                        data: [90, 80, 10, 0],
+                        backgroundColor: '#0a9396',
+                        borderColor: '#94d2bd',
+                        borderWidth: 1
+                    }, {
+                        label: 'Capa de App (Tomcat)',
+                        data: [10, 20, 90, 100],
+                        backgroundColor: '#ee9b00',
+                        borderColor: '#e9d8a6',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                             ticks: {
+                                color: '#e0f2f1',
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(148, 210, 189, 0.2)'
+                            }
+                        },
+                        x: {
+                             ticks: {
+                                color: '#e0f2f1'
+                            },
+                             grid: {
+                                color: 'rgba(148, 210, 189, 0.1)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#e0f2f1'
+                            }
+                        },
+                        tooltip: {
+                           callbacks: {
+                                title: tooltipTitleCallback
+                           }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
